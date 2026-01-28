@@ -1,16 +1,18 @@
-package com.thethirdswan.thethirdswan_subsidiaries.items.pnc.handlers;
+package com.thethirdswan.thethirdswan_subsidiaries.pnc.handlers;
 
-import com.lumintorious.tfcambiental.capability.TemperatureCapability;
-import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
+import com.mojang.logging.LogUtils;
+import com.thethirdswan.thethirdswan_subsidiaries.Registrate;
 import me.desht.pneumaticcraft.api.item.PNCUpgrade;
 import me.desht.pneumaticcraft.api.pneumatic_armor.BaseArmorUpgradeHandler;
 import me.desht.pneumaticcraft.api.pneumatic_armor.IArmorExtensionData;
 import me.desht.pneumaticcraft.api.pneumatic_armor.ICommonArmorHandler;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
+import org.slf4j.Logger;
 
 public class TemperatureHandler extends BaseArmorUpgradeHandler<IArmorExtensionData> {
+    private static final Logger LOGGER = LogUtils.getLogger();
+    public static boolean upgradeToggle;
 
     @Override
     public ResourceLocation getID() {
@@ -33,21 +35,17 @@ public class TemperatureHandler extends BaseArmorUpgradeHandler<IArmorExtensionD
     }
 
     @Override
-    public void onInit(ICommonArmorHandler commonArmorHandler) {
+    public void onToggle(ICommonArmorHandler commonArmorHandler, boolean newState) {
     }
 
-    // TODO: implement the toggle button for the upgrade so this can be called
+    // testing purposes, adding air usage later
     @Override
     public void tick(ICommonArmorHandler commonArmorHandler, boolean enabled) {
-        if (!enabled) {
-            Player player = commonArmorHandler.getPlayer();
-            player.getCapability(TemperatureCapability.CAPABILITY).ifPresent(capability -> {
-// TODO instead of instant changes, use gradual changes
-                capability.setTemperature(15f);
-            });
+        upgradeToggle = enabled;
+    }
 
-
-        }
-
+    @Override
+    public void onShutdown(ICommonArmorHandler commonArmorHandler) {
+        upgradeToggle = false;
     }
 }

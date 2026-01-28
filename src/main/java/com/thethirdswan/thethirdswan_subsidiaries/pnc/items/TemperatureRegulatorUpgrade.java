@@ -1,4 +1,4 @@
-package com.thethirdswan.thethirdswan_subsidiaries.items.pnc;
+package com.thethirdswan.thethirdswan_subsidiaries.pnc.items;
 
 import me.desht.pneumaticcraft.api.PneumaticRegistry;
 import net.minecraft.client.gui.screens.Screen;

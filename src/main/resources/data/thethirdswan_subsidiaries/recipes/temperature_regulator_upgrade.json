@@ -3,7 +3,7 @@
   "group": "thethirdswan_subsidiaries",
   "pattern": [
     "cpc",
-    "iam",
+    "vav",
     "cpc"
   ],
   "key": {
@@ -13,11 +13,8 @@
     "c": {
       "tag": "pneumaticcraft:upgrade_components"
     },
-    "i": {
-      "item": "minecraft:ice"
-    },
-    "m": {
-      "item": "minecraft:magma_block"
+    "v": {
+      "item": "pneumaticcraft:vortex_tube"
     },
     "a": {
       "item": "compressedcreativity:industrial_air_blower"

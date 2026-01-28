@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = 0
@@ -143,6 +144,8 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:1.18.2-40.3.0"
 
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
@@ -160,6 +163,18 @@ dependencies {
 	implementation fg.deobf("curse.maven:patchouli-306770:3729975")
     implementation fg.deobf("curse.maven:tfc-ambiental-398442:4001528")
     implementation fg.deobf("curse.maven:curios-309927:4985315")
+    implementation fg.deobf("curse.maven:mekanism-268560:3875976")
+    implementation fg.deobf("curse.maven:jei-238222:4593548")
+    implementation fg.deobf("curse.maven:immersive-engineering-231951:4412849")
+    implementation fg.deobf("curse.maven:firmalife-453394:4788653")
+//    robson's ore washing is not downloaded? is it private? UPDATE: ...it is
+//    implementation fg.deobf("curse.maven:tfc-ore-washing-959262:5043543")
+    implementation fg.deobf("curse.maven:tfc-ie-crossover-830886:4931792")
+}
+
+mixin {
+    config 'ttshtfcs.mixins.json'
+    add sourceSets.main, 'ttshtfcs.mixin.refmap.json'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

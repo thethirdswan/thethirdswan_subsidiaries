@@ -1,6 +1,6 @@
-package com.thethirdswan.thethirdswan_subsidiaries.items.pnc;
+package com.thethirdswan.thethirdswan_subsidiaries.pnc;
 
-import com.thethirdswan.thethirdswan_subsidiaries.items.Registrate;
+import com.thethirdswan.thethirdswan_subsidiaries.Registrate;
 import me.desht.pneumaticcraft.api.item.IUpgradeRegistry.Builder;
 import me.desht.pneumaticcraft.common.core.ModItems;
 import me.desht.pneumaticcraft.common.util.upgrade.ApplicableUpgradesDB;
